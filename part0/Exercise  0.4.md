@@ -15,7 +15,7 @@ server -->> browser: the HTML document
 deactivate server
 
 browser -->> server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
-activate servr
+activate server
 server -->> browser: the css file
 deactivate server
 
