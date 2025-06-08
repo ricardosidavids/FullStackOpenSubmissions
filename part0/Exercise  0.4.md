@@ -1,8 +1,8 @@
 ````mermaid
 
 sequenceDiagram
-participant Browser
-participant Server
+participant browser
+participant server
 
 browser ->>server : POST new note
 activate server
