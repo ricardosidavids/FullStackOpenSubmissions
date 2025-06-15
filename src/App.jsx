@@ -1,72 +1,48 @@
-const Header = (props) => {
-  return <h1>{props.course}</h1>
-}
+import  { useState } from 'react'
 
-const Content = (props) => {
-
-
-  return <>
-  <p>
-  {props.part1}
- </p>
- <p>
-  Number of exercises: {props.exercises1}
- </p>
- <p>
-  {props.part2}
- </p>
- <p>
-  Number of exercises: {props.exercises2}
- </p>
- <p>
-  {props.part3}
- </p>
- <p>
-  Number of exercises: {props.exercises3}
- </p>
-  </>}
-
-  const Total = (props) =>{
-    return <p>
-    Total number of exercises: {props.exercises1 + props.exercises2 + props.exercises3}</p>
-  }
- 
+const Display = ({counter}) => 
+  <div>{counter}</div>
+  
 
 
-
-
+const Button = ({ onClick, text }) => <button onClick={onClick}>{text}</button>
 
 const App = () => {
-  const course = 'Half Stack application development'
-  const part1 = 'Fundamentals of React'
-  const exercises1 = 10
-  const part2 = 'Using props to pass data'
-  const exercises2 = 7
-  const part3 = 'State of a component'
-  const exercises3 = 14
+ const [good, setGood] = useState(0)
+  const [neutral, setNeutral] = useState(0)
+  const [bad, setBad] = useState(0)
+
+const increaseGoodByOne = () => {
+setGood(good+1)
+console.log("Good is", good)
+
+}
+
+const increaseBadByOne = () => {
+setBad(bad+1)
+console.log("Bad is", bad)
+
+}
+
+const increaseNeutralByOne = () => {
+setNeutral(neutral+1)
+console.log("Neutral is", neutral)
+
+}
 
   return (
     <div>
-<Header course={course}/>
-<Content 
-part1 = {part1}
-part2 = {part2}
-part3 = {part3}
-exercises1 = {exercises1}
-exercises2 = {exercises2}
-exercises3 = {exercises3}
-/>
-<Total 
-exercises1 = {exercises1}
-exercises2 = {exercises2}
-exercises3 = {exercises3}
-/>
+      <Button onClick={increaseGoodByOne} text="Good" />
+      <Button onClick={increaseNeutralByOne} text="Neutral" />
+      <Button onClick={increaseBadByOne} text="Bad" />
+      
+      <h1>Statistics</h1>
+      <p>Good reviews: {good}</p>
+      <p>Neutral reviews: {neutral}</p>
+      <p>Bad reviews: {bad}</p>
     </div>
   )
 }
-
-
-  
 
 
 export default App
